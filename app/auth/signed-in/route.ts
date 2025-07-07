@@ -9,18 +9,20 @@ export async function POST(req: NextRequest) {
 	console.log("event.event", event.event);
 
 	// Check for email confirmation event
-	if (event.event === "USER_UPDATED" && event.user.email_confirmed_at) {
+	if (
+		event.type === "UPDATE" &&
+		event.table === "users" &&
+		event.record.email_confirmed_at
+	) {
 		try {
 			// Save user to your database
-			await prisma.user.create({
+			const user = await prisma.user.create({
 				data: {
-					id: event.user.id,
-					email: event.user.email,
-
-					// other fields
+					id: event.record.id,
+					email: event.record.email,
 				},
 			});
-			return NextResponse.json({ success: true });
+			return NextResponse.json(user);
 		} catch (error) {
 			console.error("Error saving user:", error);
 			return NextResponse.json({ error: "Failed to save user" });
