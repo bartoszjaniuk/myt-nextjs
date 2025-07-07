@@ -6,7 +6,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"push:db": "npx prisma db push",
-		"seed": "npx prisma db seed"
+		"seed": "npx prisma db seed",
+		"postinstall": "prisma generate && prisma migrate deploy"
 	},
 	"prisma": {
 		"seed": "tsx prisma/seed.ts"
