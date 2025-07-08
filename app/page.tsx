@@ -67,13 +67,12 @@ import {
 	DollarSign,
 	Users,
 	Zap,
-	Check,
 } from "lucide-react";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export default function HomePage() {
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 dark:from-gray-900 dark:to-gray-800">
+		<div className="min-h-screen bg-background">
 			{/* Header */}
 			<header className="container mx-auto px-4 py-6">
 				<nav className="flex items-center justify-between">
@@ -82,12 +81,12 @@ export default function HomePage() {
 						<span className="text-2xl font-bold">TimeTracker Pro</span>
 					</div>
 					<div className="flex items-center gap-4">
-						<Link href="/auth/login">
-							<Button variant="ghost">Sign In</Button>
-						</Link>
-						<Link href="/auth/signup">
-							<Button>Get Started</Button>
-						</Link>
+						<Button asChild variant="ghost">
+							<Link href="/auth/login">Sign In</Link>
+						</Button>
+						<Button asChild>
+							<Link href="/auth/sign-up">Get Started</Link>
+						</Button>
 					</div>
 				</nav>
 			</header>
@@ -203,7 +202,7 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<section className="container py-24">
+			<section className="container mx-auto py-24">
 				<div className="text-center mb-16">
 					<h2 className="text-3xl font-bold mb-4">
 						Simple, transparent pricing
@@ -281,7 +280,7 @@ export default function HomePage() {
 
 			{/* CTA Section */}
 			<section className="container mx-auto px-4 py-20 text-center">
-				<div className="bg-primary text-white rounded-2xl p-12">
+				<div className="rounded-xl border-[0.5px] bg-layout text-card-foreground shadow-sm p-12">
 					<h2 className="text-3xl font-bold mb-4">
 						Ready to boost your productivity?
 					</h2>
