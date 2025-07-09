@@ -1,4 +1,5 @@
-import { PrismaClient, User, Project, LogMethod } from "@prisma/client";
+import { PrismaClient, Project, LogMethod } from "@prisma/client";
+import { User } from "@supabase/supabase-js";
 
 export async function seedWorkLogs(
 	prisma: PrismaClient,

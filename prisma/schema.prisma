@@ -37,6 +37,32 @@ model Project {
   workLogs         WorkLog[]
   createdAt       DateTime   @default(now())
   updatedAt       DateTime   @updatedAt
+
+
+  location        String?
+
+  startDate       DateTime?
+  endDate         DateTime?
+
+  costs           ProjectCost[]
+
+  isActive        Boolean @default(true)
+
+}
+
+
+model ProjectCost {
+  id        String   @id @default(cuid())
+  title     String
+  amount    Int
+  price     Int       
+  receipt   String?   
+
+  projectId String
+  project   Project   @relation(fields: [projectId], references: [id])
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model AssignedProject {

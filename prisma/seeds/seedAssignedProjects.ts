@@ -1,4 +1,5 @@
-import { PrismaClient, User, Project, Role } from "@prisma/client";
+import { PrismaClient, Project, Role } from "@prisma/client";
+import { User } from "@supabase/supabase-js";
 
 export async function seedAssignedProjects(
 	prisma: PrismaClient,
@@ -13,19 +14,19 @@ export async function seedAssignedProjects(
 				userId: users.userAlice.id,
 				projectId: projects.projectAlpha.id,
 				role: Role.ADMIN,
-				hourlyRate: 2000,
+				hourlyRate: 100,
 			},
 			{
 				userId: users.userBob.id,
 				projectId: projects.projectAlpha.id,
 				role: Role.EMPLOYEE,
-				hourlyRate: 1200,
+				hourlyRate: 20,
 			},
 			{
 				userId: users.userCharlie.id,
 				projectId: projects.projectAlpha.id,
 				role: Role.EMPLOYEE,
-				hourlyRate: 1100,
+				hourlyRate: 10,
 			},
 			{
 				userId: users.userBob.id,

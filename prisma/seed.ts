@@ -3,6 +3,7 @@ import { seedUsers } from "./seeds/seedUsers";
 import { seedProjects } from "./seeds/seedProjects";
 import { seedAssignedProjects } from "./seeds/seedAssignedProjects";
 import { seedWorkLogs } from "./seeds/seedWorkLogs";
+import { seedProjectCosts } from "./seeds/seedProjectCosts";
 
 const prisma = new PrismaClient();
 
@@ -14,6 +15,7 @@ async function main() {
 	await Promise.all([
 		seedAssignedProjects(prisma, users, projects),
 		seedWorkLogs(prisma, users, projects),
+		seedProjectCosts(prisma, users, projects),
 	]);
 	console.log("✅ Seeding completed.");
 }
