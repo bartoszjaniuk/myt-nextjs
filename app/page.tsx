@@ -24,9 +24,26 @@ import { AuthMenu } from "@/components/auth-menu";
 
 export default function HomePage() {
 	return (
-		<div className="min-h-screen bg-background">
+		<div className="min-h-screen bg-background relative overflow-hidden">
+			<div className="absolute inset-0 opacity-30 dark:opacity-20">
+				<div
+					className="absolute inset-0"
+					style={{
+						backgroundImage: `
+            linear-gradient(rgba(34, 197, 94, 0.15) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(34, 197, 94, 0.15) 1px, transparent 1px)
+          `,
+						backgroundSize: "50px 50px",
+					}}
+				/>
+			</div>
+
+			{/* Atmospheric Green Lights */}
+			<div className="absolute top-1/3 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl" />
+			<div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl" />
+			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-green-400/5 rounded-full blur-3xl" />
 			{/* Header */}
-			<header className="container mx-auto px-4 py-6">
+			<header className="relative container mx-auto px-4 py-6 z-10">
 				<nav className="flex items-center justify-between">
 					<div className="flex items-center gap-2">
 						<Image src="/logo.svg" alt="Logo" width={32} height={32} />
@@ -39,7 +56,7 @@ export default function HomePage() {
 			</header>
 
 			{/* Hero Section */}
-			<section className="container mx-auto px-4 py-20 text-center">
+			<section className="relative container mx-auto px-4 py-20 text-center z-10">
 				<Badge variant="secondary" className="mb-4">
 					🚀 Now with Mobile App Support
 				</Badge>
@@ -70,7 +87,7 @@ export default function HomePage() {
 			</section>
 
 			{/* Features Grid */}
-			<section className="container mx-auto px-4 py-20">
+			<section className="relative container mx-auto px-4 py-20 z-10">
 				<div className="text-center mb-16">
 					<h2 className="text-3xl font-bold mb-4">
 						Everything you need to track time
@@ -149,7 +166,7 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<section className="container mx-auto py-24">
+			<section className="relative container mx-auto py-24 z-10">
 				<div className="text-center mb-16">
 					<h2 className="text-3xl font-bold mb-4">
 						Simple, transparent pricing
@@ -226,7 +243,7 @@ export default function HomePage() {
 			</section>
 
 			{/* CTA Section */}
-			<section className="container mx-auto px-4 py-20 text-center">
+			<section className="relative container mx-auto px-4 py-20 text-center z-10">
 				<div className="rounded-xl border-[0.5px] bg-layout text-card-foreground shadow-sm p-12">
 					<h2 className="text-3xl font-bold mb-4">
 						Ready to boost your productivity?
@@ -243,7 +260,7 @@ export default function HomePage() {
 			</section>
 
 			{/* Footer */}
-			<footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
+			<footer className="relative w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16 z-10">
 				<p>
 					Powered by{" "}
 					<a
