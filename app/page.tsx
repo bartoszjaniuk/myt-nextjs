@@ -24,7 +24,7 @@ import { AuthMenu } from "@/components/auth-menu";
 
 export default function HomePage() {
 	return (
-		<div className="min-h-screen bg-background relative overflow-hidden">
+		<div className="min-h-screen bg-background relative ">
 			<div className="absolute inset-0 opacity-30 dark:opacity-20">
 				<div
 					className="absolute inset-0"
@@ -43,17 +43,19 @@ export default function HomePage() {
 			<div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl" />
 			<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-green-400/5 rounded-full blur-3xl" />
 			{/* Header */}
-			<header className="relative container mx-auto px-4 py-6 z-10">
-				<nav className="flex items-center justify-between">
-					<div className="flex items-center gap-2">
-						<Image src="/logo.svg" alt="Logo" width={32} height={32} />
-						<span className="text-2xl font-bold">Project Tracker</span>
+			<nav className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+				<header className="relative container mx-auto px-4 py-6 z-10">
+					<div className="flex items-center justify-between">
+						<div className="flex items-center gap-2">
+							<Image src="/logo.svg" alt="Logo" width={32} height={32} />
+							<span className="text-2xl font-bold">Project Tracker</span>
+						</div>
+						<div className="flex items-center gap-4">
+							{!hasEnvVars ? <EnvVarWarning /> : <AuthMenu />}
+						</div>
 					</div>
-					<div className="flex items-center gap-4">
-						{!hasEnvVars ? <EnvVarWarning /> : <AuthMenu />}
-					</div>
-				</nav>
-			</header>
+				</header>
+			</nav>
 
 			{/* Hero Section */}
 			<section className="relative container mx-auto px-4 py-20 text-center z-10">

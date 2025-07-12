@@ -24,7 +24,7 @@ export const UserDropdown = ({ user }: { user: User }) => {
 	return (
 		<div className="flex gap-2 items-center">
 			<Button asChild variant="default" size="sm">
-				<Link href="/projects">Dashboard</Link>
+				<Link href="/dashboard">Dashboard</Link>
 			</Button>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
